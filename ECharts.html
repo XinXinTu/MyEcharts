@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="js/echarts.min.js"></script>
+    <script>
+        // echaets.init(dom容器);
+        // 初始化实例对象 echart.init(dom容器)
+        var myChart = echarts.init(document.querySelector(".box"));
+        // 指定配置项和数据
+        var option = {
+            // color[]设置线条颜色是个数组
+            // 设置图表标题
+            title:{
+                text:"ECharts入门示例"
+            },
+            // 图表提示框组件
+            tooltip:{
+                // 触发方式 axis坐标轴 trigger触发类型
+            },
+            // 图例组件
+            legend:{
+                data:["销量"]
+            },
+            // 设置x轴的相关配置 
+            xAxis:{
+                // type:'category'类目轴
+                // broundaryGap:true是否让线条和坐标轴有缝隙
+                data:["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis:{
+                type:'value'
+            },
+            // 系列图表配置 塔决定了显示那种类型的图表
+            series:[{
+                name:"销量",// series里面有name把legend里面的data可以删掉
+                type :"bar",//line用折线图或柱状图来显示
+                data:[5,20,36,10,10,20]
+            }]
+            // toolbox是工具箱组件
+            // grid 网格配置 可以控制线形图 柱状图 图表大小 containLabel：false是否显示刻度标签
+
+        };
+        // 把配置项给实例对象
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
